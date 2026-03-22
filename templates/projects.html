@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio Projects - Nariman Ousman</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6", 
+                        "primary-hover": "#2563eb",
+                        "background-light": "#F8F8F8", 
+                        "background-dark": "#0B1116", 
+                        "surface-dark": "#161B22", 
+                        "surface-dark-hover": "#21262d",
+                        "border-dark": "#30363d",
+                        "text-secondary": "#8b949e",
+                        "text-primary-dark": "#c9d1d9",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>.nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #ffffff;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display text-text-primary-dark transition-colors duration-300">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full bg-gradient-to-r from-blue-900 to-sky-500 shadow-md transition-colors duration-300">
+<div class="px-4 md:px-10 py-4 flex items-center justify-between max-w-[1280px] mx-auto w-full relative">
+<div class="flex items-center">
+<a class="text-sm font-bold tracking-wider text-white hover:text-white/90 transition-colors" href="/">Nariman</a>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="nav-link text-sm font-medium text-white transition-colors hover:text-white/90" href="/">Home</a>
+<a class="nav-link text-sm font-medium text-white transition-colors hover:text-white/90" href="#about">About</a>
+<a class="nav-link active text-sm font-bold text-white transition-colors" href="/projects">Projects</a>
+<a class="nav-link text-sm font-medium text-white transition-colors hover:text-white/90" href="/blog">Blog</a>
+<a class="nav-link text-sm font-medium text-white transition-colors hover:text-white/90" href="/contact">Contact</a>
+</nav>
+<input class="peer hidden" id="mobile-menu-toggle" type="checkbox"/>
+<label class="md:hidden flex items-center justify-center text-white cursor-pointer z-50" for="mobile-menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</label>
+<div class="hidden peer-checked:flex absolute top-full right-0 w-1/2 h-[50vh] bg-gradient-to-b from-blue-900 to-sky-500 shadow-xl flex-col p-6 gap-6 z-40 md:hidden">
+<a class="text-white text-base font-medium hover:opacity-80 block" href="/">Home</a>
+<a class="text-white text-base font-medium hover:opacity-80 block" href="/about">About</a>
+<a class="text-white text-base font-bold block underline underline-offset-4" href="/projects">Projects</a>
+<a class="text-white text-base font-medium hover:opacity-80 block" href="/blog">Blog</a>
+<a class="text-white text-base font-medium hover:opacity-80 block" href="/contact">Contact</a>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-4 md:px-10 py-8 md:py-12">
+<div class="mb-12 flex flex-col gap-4 max-w-3xl">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.1]">
+                    Featured Projects
+                </h1>
+<p class="text-lg md:text-xl text-text-secondary leading-relaxed">
+                    Showcasing my academic journey and technical abilities through real-world data thinking, with a focus on healthcare and education in African contexts.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- YouTube Clone Card -->
+                <article class="group flex flex-col rounded-2xl bg-surface-dark/40 backdrop-blur-md border border-white/5 overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:-translate-y-2">
+                    <div class="aspect-video w-full overflow-hidden bg-gradient-to-br from-red-600/20 to-black relative">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined text-6xl text-red-500">smart_display</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/30 rounded">YouTube Clone</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">YouTube Clone Project</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                            A high-performance video streaming platform clone featuring real-time search, category filtering, and a seamless video playback experience.
+                        </p>
+                        <div class="mt-auto">
+                            <a class="w-full flex items-center justify-center gap-2 rounded-xl py-3 px-6 bg-primary text-white text-sm font-bold hover:bg-primary-hover transition-all shadow-lg shadow-primary/20 group-hover:shadow-primary/40" href="https://nariman-movie-recommendation.onrender.com" target="_blank">
+                                <span>View Project</span>
+                                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Currency Converter Card -->
+                <article class="group flex flex-col rounded-2xl bg-surface-dark/40 backdrop-blur-md border border-white/5 overflow-hidden transition-all duration-500 hover:border-emerald-400/40 hover:shadow-[0_0_30px_rgba(52,211,153,0.15)] hover:-translate-y-2">
+                    <div class="aspect-video w-full overflow-hidden bg-gradient-to-br from-emerald-600/20 to-black relative">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined text-6xl text-emerald-400">currency_exchange</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-emerald-400/20 text-emerald-400 border border-emerald-400/30 rounded">Utility App</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Currency Converter</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                            A real-time financial utility providing instant currency conversions with live exchange rate data and a clean, intuitive user interface.
+                        </p>
+                        <div class="mt-auto">
+                            <a class="w-full flex items-center justify-center gap-2 rounded-xl py-3 px-6 bg-emerald-500 text-white text-sm font-bold hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40" href="https://narimanosman-currency-convertor.onrender.com" target="_blank">
+                                <span>View Project</span>
+                                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Climate Forecast Card -->
+                <article class="group flex flex-col rounded-2xl bg-surface-dark/40 backdrop-blur-md border border-white/5 overflow-hidden transition-all duration-500 hover:border-sky-400/40 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] hover:-translate-y-2">
+                    <div class="aspect-video w-full overflow-hidden bg-gradient-to-br from-sky-600/20 to-black relative">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined text-6xl text-sky-400">agriculture</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-sky-400/20 text-sky-400 border border-sky-400/30 rounded">AgriTech</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">Climate & Crop Advisor</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                            An intelligent agricultural tool that analyzes soil contents (pH, Nitrogen, etc.) to recommend the most suitable crops, optimizing yield.
+                        </p>
+                        <div class="mt-auto">
+                            <a class="w-full flex items-center justify-center gap-2 rounded-xl py-3 px-6 bg-sky-500 text-white text-sm font-bold hover:bg-sky-600 transition-all shadow-lg shadow-sky-500/20 group-hover:shadow-sky-500/40" href="https://climate-forecast.onrender.com" target="_blank">
+                                <span>View Project</span>
+                                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- South Sudan Hospital Card -->
+                <article class="group flex flex-col rounded-2xl bg-surface-dark/40 backdrop-blur-md border border-white/5 overflow-hidden transition-all duration-500 hover:border-rose-400/40 hover:shadow-[0_0_30px_rgba(251,113,133,0.15)] hover:-translate-y-2">
+                    <div class="aspect-video w-full overflow-hidden bg-gradient-to-br from-rose-600/20 to-black relative">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined text-6xl text-rose-400">local_hospital</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-rose-400/20 text-rose-400 border border-rose-400/30 rounded">Healthcare</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-rose-400 transition-colors">Hospital Management</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                            A specialized healthcare solution for medical facilities in South Sudan, focusing on patient records and facility management. (Backend in progress)
+                        </p>
+                        <div class="mt-auto">
+                            <a class="w-full flex items-center justify-center gap-2 rounded-xl py-3 px-6 bg-rose-500 text-white text-sm font-bold hover:bg-rose-600 transition-all shadow-lg shadow-rose-500/20 group-hover:shadow-rose-500/40" href="https://climate-forecast.onrender.com" target="_blank">
+                                <span>View Project</span>
+                                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Academic Dashboard Card -->
+                <article class="group flex flex-col rounded-2xl bg-surface-dark/40 backdrop-blur-md border border-white/5 overflow-hidden transition-all duration-500 hover:border-purple-400/40 hover:shadow-[0_0_30px_rgba(192,132,252,0.15)] hover:-translate-y-2">
+                    <div class="aspect-video w-full overflow-hidden bg-gradient-to-br from-purple-600/20 to-black relative">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined text-6xl text-purple-400">monitoring</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-purple-400/20 text-purple-400 border border-purple-400/30 rounded">EdTech</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">Academic Performance Dashboard</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                            A data-driven dashboard for educational monitoring, tracking student progress and identifying performance trends through study-time analytics.
+                        </p>
+                        <div class="mt-auto">
+                            <a class="w-full flex items-center justify-center gap-2 rounded-xl py-3 px-6 bg-purple-500 text-white text-sm font-bold hover:bg-purple-600 transition-all shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40" href="https://nariman-academic-performance-dashboard.onrender.com" target="_blank">
+                                <span>View Project</span>
+                                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+</main>
+<footer class="w-full border-t border-border-dark bg-background-dark py-8">
+<div class="max-w-[1280px] mx-auto px-4 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+<p class="text-text-secondary text-sm">© 2024 Nariman Ousman. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="text-text-secondary hover:text-primary text-sm font-medium transition-colors" href="#">LinkedIn</a>
+<a class="text-text-secondary hover:text-primary text-sm font-medium transition-colors" href="#">GitHub</a>
+<a class="text-text-secondary hover:text-primary text-sm font-medium transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
