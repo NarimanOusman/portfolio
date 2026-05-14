@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>{% block title %}Nariman - Data Science Portfolio{% endblock %}</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#001f3f", 
+                    "primary-light": "#003366", 
+                    "accent": "#ff6347", 
+                    "background-light": "#F8F8F8", 
+                    "text-main": "#f8fafc", 
+                    "text-muted": "#94a3b8", 
+                },
+                fontFamily: {
+                    "display": ["Manrope", "sans-serif"]
+                },
+            },
+        },
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+    }
+    .bg-gradient-page-light {
+        background: radial-gradient(circle at top right, #f8fafc, #f1f5f9);
+    }
+    .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    /* Clean dark navy navbar */
+    .liquid-glass {
+        background: #1e2d45;
+        padding: 8px 0;
+        transition: all 220ms ease;
+    }
+    .nav-mobile {
+        transform-origin: top center;
+        transition: transform 250ms cubic-bezier(.2,.9,.2,1), opacity 200ms ease;
+    }
+    .nav-mobile.hidden { transform: translateY(-6px) scaleY(.98); opacity: 0; pointer-events: none; }
+    .nav-mobile.open { transform: translateY(0) scaleY(1); opacity: 1; pointer-events: auto; }
+    /* Mobile nav uses same dark navy styling */
+    .nav-mobile .liquid-glass {
+        background: #1a2740;
+        border-radius: 8px;
+        padding: 8px 0;
+    }
+    .nav-mobile .nav-pill {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 10px 14px;
+        margin: 4px 0;
+    }
+    .nav-mobile .nav-pill:hover {
+        background: rgba(255,255,255,0.08);
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    .nav-mobile .nav-pill.active {
+        background: rgba(255,255,255,0.1);
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    /* Centered nav and clean pill styling */
+    .nav-center { position: static; transform: none; display: flex; gap: 1.5rem; align-items: center; margin-left: auto; }
+    .nav-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 14px;
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+        opacity: 0.75;
+        transition: opacity 200ms ease, background 200ms ease, border 200ms ease, backdrop-filter 200ms ease, border-radius 200ms ease;
+        cursor: pointer;
+    }
+    .nav-pill:hover {
+        opacity: 1.0;
+        background: rgba(255,255,255,0.08);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    .nav-pill:focus { outline: 2px solid rgba(255,255,255,0.15); outline-offset: -4px; }
+    /* Active pill style (selected) - with liquid glass effect */
+    .nav-pill.active {
+        opacity: 1.0;
+        background: rgba(255,255,255,0.1);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.2);
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .text-gradient {
+        background: linear-gradient(to right, #3b82f6, #60a5fa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    @keyframes led-rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .led-btn {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        background: #000; /* Dark background for visibility */
+    }
+    .led-btn::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(transparent, transparent, transparent, #3b82f6);
+        animation: led-rotate 4s linear infinite;
+        z-index: -2;
+    }
+    .led-btn::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background: inherit;
+        border-radius: inherit;
+        z-index: -1;
+    }
+    
+    @keyframes circulating {
+        0% { transform: scale(1) rotate(0deg); }
+        50% { transform: scale(1.05) rotate(2deg); }
+        100% { transform: scale(1) rotate(0deg); }
+    }
+    
+    .profile-glow {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.1);
+        animation: circulating 10s ease-in-out infinite;
+    }
+
+    /* Scroll animations */
+    .scroll-hidden {
+        opacity: 0;
+        transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .scroll-hidden.from-bottom { transform: translateY(80px); }
+    .scroll-visible {
+        opacity: 1 !important;
+        transform: translate(0) !important;
+    }
+    /* Reveal delays for staggered cards */
+    .delay-1 { transition-delay: 100ms; }
+    .delay-2 { transition-delay: 200ms; }
+    .delay-3 { transition-delay: 300ms; }
+    .delay-4 { transition-delay: 400ms; }
+    .delay-5 { transition-delay: 500ms; }
+    .delay-6 { transition-delay: 600ms; }
+    
+    {% block extra_css %}{% endblock %}
+</style>
+</head>
+<body class="bg-gradient-page-light min-h-screen text-slate-900 font-display overflow-x-hidden antialiased selection:bg-blue-500 selection:text-white">
+<div class="relative flex min-h-screen w-full flex-col group/design-root">
+<header class="sticky top-0 z-50 w-full relative">
+    <div class="liquid-glass">
+        <div class="px-6 md:px-12 lg:px-24 flex h-12 items-center justify-between max-w-[1400px] mx-auto relative">
+            <div class="flex items-center gap-4">
+                <a class="flex items-center gap-2 group" href="/">
+                    <h2 class="text-2xl font-extrabold tracking-tighter text-white uppercase">Nariman</h2>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-6 ml-auto">
+                <a class="nav-pill" href="/">Home</a>
+                <a class="nav-pill" href="/about">About</a>
+                <a class="nav-pill" href="/projects">Projects</a>
+                <a class="nav-pill" href="/blog">Blog</a>
+                <a class="nav-pill" href="/contact">Contact Me</a>
+            </nav>
+
+            <!-- Mobile: hamburger -->
+            <button id="nav-toggle" aria-controls="mobile-nav" aria-expanded="false" class="md:hidden p-3 -m-3 rounded-full hover:bg-white/5 transition-colors text-white">
+                <span id="nav-icon" class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile nav panel -->
+    <div id="mobile-nav" class="nav-mobile hidden md:hidden absolute left-0 right-0 top-full mt-2 px-6">
+        <div class="liquid-glass">
+            <div class="flex flex-col">
+                <a class="nav-pill text-left" href="/">Home</a>
+                <a class="nav-pill text-left" href="/about">About</a>
+                <a class="nav-pill text-left" href="/projects">Projects</a>
+                <a class="nav-pill text-left" href="/blog">Blog</a>
+                <a class="nav-pill text-left" href="/contact">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="flex-grow">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer class="py-12 border-t border-slate-200 bg-slate-50 text-slate-900">
+    <div class="px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="flex flex-col gap-6 max-w-sm">
+                <a class="flex items-center gap-2 group" href="/">
+                    <h2 class="text-2xl font-extrabold tracking-tighter uppercase text-slate-900">Nariman</h2>
+                </a>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Dedicated to transforming complex data into significant socio-economic impact across healthcare and education in Africa.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-24">
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-blue-600">Navigation</h4>
+                    <a href="/" class="text-sm text-slate-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="/about" class="text-sm text-slate-600 hover:text-blue-600 transition-colors">About</a>
+                    <a href="/projects" class="text-sm text-slate-600 hover:text-blue-600 transition-colors">Projects</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-blue-600">Connect</h4>
+                    <a href="#" class="text-sm text-slate-600 hover:text-blue-600 transition-colors">LinkedIn</a>
+                    <a href="#" class="text-sm text-slate-600 hover:text-blue-600 transition-colors">Twitter/X</a>
+                    <a href="#" class="text-sm text-slate-600 hover:text-blue-600 transition-colors">GitHub</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-blue-600">Legal</h4>
+                    <p class="text-xs text-slate-500">© 2026 Nariman Osman</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Scroll Animation Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('scroll-visible');
+            } else {
+                entry.target.classList.remove('scroll-visible');
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.scroll-hidden').forEach((el) => {
+        observer.observe(el);
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const navIcon = document.getElementById('nav-icon');
+    if (navToggle && mobileNav && navIcon) {
+        navToggle.addEventListener('click', function () {
+            const isOpen = mobileNav.classList.contains('open');
+            if (isOpen) {
+                mobileNav.classList.remove('open');
+                mobileNav.classList.add('hidden');
+                navIcon.textContent = 'menu';
+                navToggle.setAttribute('aria-expanded', 'false');
+            } else {
+                mobileNav.classList.remove('hidden');
+                requestAnimationFrame(() => mobileNav.classList.add('open'));
+                navIcon.textContent = 'close';
+                navToggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('open')) {
+                mobileNav.classList.remove('open');
+                mobileNav.classList.add('hidden');
+                navIcon.textContent = 'menu';
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+    // Highlight active nav item based on current page
+    function setActiveNav() {
+        const navLinks = document.querySelectorAll('.nav-pill');
+        const currentPath = window.location.pathname.split('/')[1] || '';
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href').split('/')[1] || '';
+            
+            // Match current page: /projects -> projects, /about -> about, etc.
+            if ((currentPath === href) || (currentPath === '' && href === '')) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Run on page load and on nav link click
+    document.addEventListener('DOMContentLoaded', setActiveNav);
+    document.querySelectorAll('.nav-pill').forEach(link => {
+        link.addEventListener('click', () => setTimeout(setActiveNav, 100));
+    });
+</script>
+</div>
+</body>
+</html>

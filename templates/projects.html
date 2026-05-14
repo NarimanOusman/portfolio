@@ -1,89 +1,9 @@
-<!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Portfolio Projects - Nariman Ousman</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#3b82f6", 
-                        "primary-hover": "#2563eb",
-                        "background-light": "#F8F8F8", 
-                        "background-dark": "#0B1116", 
-                        "surface-dark": "#161B22", 
-                        "surface-dark-hover": "#21262d",
-                        "border-dark": "#30363d",
-                        "text-secondary": "#8b949e",
-                        "text-primary-dark": "#c9d1d9",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style>.nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #ffffff;
-            transition: width 0.3s ease-in-out;
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-    </style>
-</head>
-<body class="bg-background-dark font-display text-text-primary-dark transition-colors duration-300">
-<div class="relative flex min-h-screen flex-col overflow-x-hidden">
-<header class="sticky top-0 z-50 w-full bg-gradient-to-r from-blue-900 to-sky-500 shadow-md transition-colors duration-300">
-<div class="px-4 md:px-10 py-4 flex items-center justify-between max-w-[1280px] mx-auto w-full relative">
-<div class="flex items-center">
-<a class="text-sm font-bold tracking-wider text-white hover:text-white/90 transition-colors" href="/">Nariman</a>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="nav-link text-sm font-medium text-white transition-colors hover:text-white/90" href="/">Home</a>
-<a class="nav-link text-sm font-medium text-white transition-colors hover:text-white/90" href="#about">About</a>
-<a class="nav-link active text-sm font-bold text-white transition-colors" href="/projects">Projects</a>
-<a class="nav-link text-sm font-medium text-white transition-colors hover:text-white/90" href="/blog">Blog</a>
-<a class="nav-link text-sm font-medium text-white transition-colors hover:text-white/90" href="/contact">Contact</a>
-</nav>
-<input class="peer hidden" id="mobile-menu-toggle" type="checkbox"/>
-<label class="md:hidden flex items-center justify-center text-white cursor-pointer z-50" for="mobile-menu-toggle">
-<span class="material-symbols-outlined">menu</span>
-</label>
-<div class="hidden peer-checked:flex absolute top-full right-0 w-1/2 h-[50vh] bg-gradient-to-b from-blue-900 to-sky-500 shadow-xl flex-col p-6 gap-6 z-40 md:hidden">
-<a class="text-white text-base font-medium hover:opacity-80 block" href="/">Home</a>
-<a class="text-white text-base font-medium hover:opacity-80 block" href="/about">About</a>
-<a class="text-white text-base font-bold block underline underline-offset-4" href="/projects">Projects</a>
-<a class="text-white text-base font-medium hover:opacity-80 block" href="/blog">Blog</a>
-<a class="text-white text-base font-medium hover:opacity-80 block" href="/contact">Contact</a>
-</div>
-</div>
-</header>
-<main class="flex-grow w-full max-w-[1280px] mx-auto px-4 md:px-10 py-8 md:py-12">
+{% extends 'base.html' %}
+
+{% block title %}Portfolio Projects - Nariman Ousman{% endblock %}
+
+{% block content %}
+<div class="flex-grow w-full max-w-[1280px] mx-auto px-4 md:px-10 py-8 md:py-12">
 <div class="mb-12 flex flex-col gap-4 max-w-3xl">
 <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.1]">
                     Featured Projects
@@ -213,16 +133,5 @@
                     </div>
                 </article>
             </div>
-</main>
-<footer class="w-full border-t border-border-dark bg-background-dark py-8">
-<div class="max-w-[1280px] mx-auto px-4 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
-<p class="text-text-secondary text-sm">© 2024 Nariman Ousman. All rights reserved.</p>
-<div class="flex items-center gap-6">
-<a class="text-text-secondary hover:text-primary text-sm font-medium transition-colors" href="#">LinkedIn</a>
-<a class="text-text-secondary hover:text-primary text-sm font-medium transition-colors" href="#">GitHub</a>
-<a class="text-text-secondary hover:text-primary text-sm font-medium transition-colors" href="#">Twitter</a>
 </div>
-</div>
-</footer>
-</div>
-</body></html>
+{% endblock %}
