@@ -78,6 +78,30 @@
         width: 100%;
     }
 }
+
+/* Desktop: project cards - reduce height and font size */
+@media (min-width: 1024px) {
+    /* Project card image: reduce height */
+    .bg-white.border.border-black\/5 .h-48 {
+        height: 128px !important;
+    }
+
+    /* Project card title: reduce font size */
+    .bg-white.border.border-black\/5 h4 {
+        font-size: 1rem !important;
+        line-height: 1.5rem !important;
+    }
+
+    /* Project card description: reduce font size */
+    .bg-white.border.border-black\/5 > .p-6 > p {
+        font-size: 0.813rem !important;
+    }
+
+    /* Project card padding: reduce */
+    .bg-white.border.border-black\/5 > .p-6 {
+        padding: 1rem !important;
+    }
+}
 </style>
     <!-- Section 1 — Hero -->
     <section style="padding:100px 0; background:#1a2b42; position:relative; overflow:hidden;" aria-label="Hero">
