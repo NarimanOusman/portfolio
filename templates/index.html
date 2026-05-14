@@ -4,6 +4,21 @@
 
 {% load static %}
 {% block content %}
+<style>
+@media (max-width: 767px) {
+    section[aria-label="Hero"] > div > div {
+        display: flex;
+        flex-direction: column;
+    }
+    section[aria-label="Hero"] > div > div > div:first-child {
+        order: 2;
+    }
+    section[aria-label="Hero"] > div > div > div:last-child {
+        order: 1;
+        margin-bottom: 1.5rem;
+    }
+}
+</style>
     <!-- Section 1 — Hero -->
     <section style="padding:100px 0; background:#1a2b42; position:relative; overflow:hidden;" aria-label="Hero">
         <!-- decorative faint blob -->
