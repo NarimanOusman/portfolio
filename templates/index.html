@@ -10,24 +10,10 @@
 .hero-image-anim { transform: translateX(80px); }
 
 /* Skills card animations — Desktop: slide from bottom */
-.skill-card-anim { transform: translateY(60px); opacity: 0; }
-.skill-card-anim.scroll-visible { 
-    animation: slideUpDesktop 0.9s ease-out forwards;
-}
-
-/* Skills card animations — Mobile: slide from left with stagger */
-@keyframes slideUpDesktop {
-    to { 
-        transform: translateY(0); 
-        opacity: 1;
-    }
-}
-
-@keyframes slideLeftMobile {
-    to { 
-        transform: translateX(0); 
-        opacity: 1;
-    }
+.skill-card-anim { 
+    transform: translateY(60px); 
+    opacity: 0;
+    transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (max-width: 767px) {
@@ -54,21 +40,23 @@
     .skill-card-anim { 
         transform: translateX(-60px); 
         opacity: 0;
+        transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .skill-card-anim.scroll-visible { 
-        animation: none;
+    .skill-card-anim:nth-child(1) { transition-delay: 0s; }
+    .skill-card-anim:nth-child(2) { transition-delay: 0.15s; }
+    .skill-card-anim:nth-child(3) { transition-delay: 0.3s; }
+    .skill-card-anim:nth-child(4) { transition-delay: 0.45s; }
+
+    /* Add padding to mobile cards */
+    .skill-card-anim {
+        margin: 0.5rem;
     }
-    .skill-card-anim:nth-child(1).scroll-visible { 
-        animation: slideLeftMobile 0.9s ease-out forwards 0s;
-    }
-    .skill-card-anim:nth-child(2).scroll-visible { 
-        animation: slideLeftMobile 0.9s ease-out forwards 0.15s;
-    }
-    .skill-card-anim:nth-child(3).scroll-visible { 
-        animation: slideLeftMobile 0.9s ease-out forwards 0.3s;
-    }
-    .skill-card-anim:nth-child(4).scroll-visible { 
-        animation: slideLeftMobile 0.9s ease-out forwards 0.45s;
+}
+
+@media (min-width: 768px) {
+    /* Increase card width on tablet and above */
+    .skill-card-anim {
+        max-width: 100%;
     }
 }
 </style>
