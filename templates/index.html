@@ -14,8 +14,22 @@
     transform: translateY(60px); 
     opacity: 0;
     transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    flex-direction: column;
 }
 
+/* Inner card content uses flex to align proficiency bars */
+.skill-card-anim > .p-6 {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.skill-card-anim .flex.flex-wrap {
+    flex: 1;
+}
+
+/* Mobile: 98% width cards */
 @media (max-width: 767px) {
     /* Hero mobile reordering */
     section[aria-label="Hero"] > div > div {
@@ -41,22 +55,20 @@
         transform: translateX(-60px); 
         opacity: 0;
         transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        width: 98% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     .skill-card-anim:nth-child(1) { transition-delay: 0s; }
     .skill-card-anim:nth-child(2) { transition-delay: 0.15s; }
     .skill-card-anim:nth-child(3) { transition-delay: 0.3s; }
     .skill-card-anim:nth-child(4) { transition-delay: 0.45s; }
-
-    /* Add padding to mobile cards */
-    .skill-card-anim {
-        margin: 0.5rem;
-    }
 }
 
+/* Desktop: wider cards with minimal gap */
 @media (min-width: 768px) {
-    /* Increase card width on tablet and above */
     .skill-card-anim {
-        max-width: 100%;
+        width: 100%;
     }
 }
 </style>
@@ -93,14 +105,14 @@
 
     <!-- Section 2 — What I Do -->
     <section class="py-16 lg:py-24">
-        <div class="px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto">
+        <div class="px-6 md:px-12 lg:px-16 max-w-[1400px] mx-auto">
             <div class="mb-12 text-center">
                 <div class="text-xs font-semibold uppercase mb-2" style="color:#1D9E75;">SKILLS</div>
                 <h3 class="text-3xl font-bold text-slate-900">What I do</h3>
                 <p class="text-slate-600 max-w-2xl mx-auto mt-2">Tools and techniques I work with every day</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-3 lg:gap-5">
                 <!-- Card 1 — Data Analysis -->
                 <div class="skill-card-anim scroll-hidden bg-slate-900 border border-slate-800 rounded-lg overflow-hidden hover:border-blue-500/50 transition-colors duration-300">
                     <div class="p-6">
