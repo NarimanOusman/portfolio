@@ -29,19 +29,53 @@
     .hero-image-container {
         animation: slideInRight 1s ease-out forwards;
     }
+    /* New hero styles */
+    .hero-glass {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 1rem;
+        padding: 2rem;
+    }
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: fadeInUp 1s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+        from { opacity:0; transform: translateY(20px); }
+        to { opacity:1; transform: translateY(0); }
+    }
+    .cta-button {
+        display: inline-block;
+        margin-top: 1rem;
+        background: #0ea5e9;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        transition: background 0.3s;
+    }
+    .cta-button:hover {
+        background: #0284c7;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="layout-container flex flex-col items-center">
-<div class="w-full max-w-[1400px] px-4 pt-12 pb-8 md:pt-20 md:pb-12 md:px-10 bg-black">
+<div class="layout-container flex flex-col items-center min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-8">
+<div class="w-full max-w-[1400px] px-4 pt-12 pb-8 md:pt-20 md:pb-12 md:px-10 hero-glass">
 <div class="flex flex-col-reverse md:flex-row gap-12 items-center md:items-start">
 <div class="flex flex-1 flex-col gap-6">
 <div class="space-y-3">
 <span class="inline-block rounded-full bg-teal-100/20 px-3 py-1 text-xs font-bold text-teal-400 tracking-wide uppercase border border-teal-500/30 shadow-sm">About Me</span>
-<h1 class="text-3xl md:text-6xl font-black leading-tight tracking-tight text-white">
+<h1 class="hero-title text-3xl md:text-6xl font-black leading-tight tracking-tight text-white">
                                 Data Scientist &amp; Researcher
                             </h1>
+                            <a href="/contact" class="cta-button">Get in Touch</a>
 </div>
 <p class="text-gray-300 text-base md:text-xl leading-relaxed font-medium">
                             Passionate about leveraging data science to solve critical challenges in <span class="text-teal-400 font-bold">African healthcare and education systems</span>. My work bridges the gap between raw data and actionable insights, showcasing academic rigor, technical abilities, and real-world data thinking.
