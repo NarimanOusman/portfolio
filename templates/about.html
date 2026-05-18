@@ -3,32 +3,229 @@
 {% block title %}About - Nariman Osman{% endblock %}
 
 {% block extra_css %}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.39.3/iconfont/tabler-icons.css">
 <style>
-    .skill-card:hover .overlay {
-        transform: translateY(0);
-    }
-    .reveal-on-scroll {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .reveal-on-scroll.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    @keyframes slideInRight {
-        from {
-            opacity: 0;
-            transform: translateX(50px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    .hero-image-container {
-        animation: slideInRight 1s ease-out forwards;
-    }
+:root {
+  --bg-deep-navy: #0f1623;
+  --card-bg: #0f1623; /* Background of the removed card container */
+}
+
+/* Skill grid container */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 28px;
+}
+
+@media (max-width: 1024px) {
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .skill-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 8px;
+  }
+}
+
+.skill-card {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 250px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(15, 22, 35, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.skill-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-color);
+  background-color: #161f30; /* The glassy navy blue color */
+  box-shadow: 0 20px 40px -10px rgba(15, 22, 35, 0.3), 0 10px 20px -5px var(--accent-color-glow);
+}
+
+/* Accent colors & glows */
+.skill-card[data-accent="blue"]   { --accent-color: #3b82f6; --accent-color-glow: rgba(59, 130, 246, 0.25); }
+.skill-card[data-accent="purple"] { --accent-color: #a855f7; --accent-color-glow: rgba(168, 85, 247, 0.25); }
+.skill-card[data-accent="orange"] { --accent-color: #fb923c; --accent-color-glow: rgba(251, 146, 60, 0.25); }
+.skill-card[data-accent="teal"]   { --accent-color: #14b8a6; --accent-color-glow: rgba(20, 184, 166, 0.25); }
+.skill-card[data-accent="red"]    { --accent-color: #ef4444; --accent-color-glow: rgba(239, 68, 68, 0.25); }
+.skill-card[data-accent="cyan"]   { --accent-color: #06b6d4; --accent-color-glow: rgba(6, 182, 212, 0.25); }
+.skill-card[data-accent="green"]  { --accent-color: #10b981; --accent-color-glow: rgba(16, 185, 129, 0.25); }
+.skill-card[data-accent="pink"]   { --accent-color: #ec4899; --accent-color-glow: rgba(236, 72, 153, 0.25); }
+
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 2;
+}
+
+.skill-card:hover .icon-wrapper {
+  transform: scale(1.05);
+}
+
+.glow-blob {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-color: var(--accent-color);
+  filter: blur(18px);
+  opacity: 0.35;
+  border-radius: 50%;
+  z-index: -1;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+}
+
+.skill-card:hover .glow-blob {
+  transform: scale(1.3);
+  opacity: 0.55;
+}
+
+.icon-wrapper i {
+  font-size: 26px;
+  color: var(--accent-color);
+  transition: filter 0.4s ease;
+}
+
+.skill-card:hover .icon-wrapper i {
+  filter: drop-shadow(0 0 8px var(--accent-color));
+}
+
+.accent-bar {
+  height: 4px;
+  width: 100%;
+  background: var(--accent-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.4s ease;
+}
+
+.skill-card:hover .accent-bar {
+  box-shadow: 0 -2px 12px var(--accent-color);
+}
+
+.skill-title {
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  z-index: 2;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.skill-card:hover .skill-tag {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 22, 35, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  z-index: 3;
+}
+
+.skill-card:hover .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-content {
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+}
+
+.skill-card:hover .overlay-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-image-container {
+  animation: slideInRight 1s ease-out forwards;
+}
 </style>
 {% endblock %}
 
@@ -97,87 +294,275 @@
 </div>
 </div>
 </div>
-<div class="w-full max-w-[1400px] px-4 py-16 md:py-20 md:px-10">
-<div class="flex flex-col gap-3 mb-10 text-center md:text-left">
-<h2 class="text-2xl md:text-3xl font-bold leading-tight text-slate-900">Technical &amp; Professional Skills</h2>
-<p class="text-slate-600 text-base md:text-lg">Hover over cards to see application context</p>
+<div class="w-full bg-[#ffffff] py-16 md:py-20 flex justify-center border-t border-slate-200">
+  <div class="w-full max-w-[1400px] px-6 md:px-12">
+    <div class="flex flex-col gap-3 mb-10 text-center md:text-left">
+      <h2 class="text-3xl font-black leading-tight text-slate-900 tracking-tight">Technical &amp; Professional Skills</h2>
+      <p class="text-slate-500 text-base md:text-lg">Hover over cards to see application context. Click a card for details.</p>
+    </div>
+    
+    <div class="skill-grid">
+      <!-- 1. Communication -->
+      <div class="reveal-on-scroll skill-card" data-accent="blue" onclick="handleSkillClick('Communication')">
+        <div class="icon-wrapper">
+          <div class="glow-blob"></div>
+          <i class="ti ti-message-2"></i>
+        </div>
+        <h3 class="skill-title">Communication</h3>
+        <span class="skill-tag">Soft Skill</span>
+        <div class="accent-bar"></div>
+        <div class="overlay">
+          <div class="overlay-content text-center">
+            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Translating complex data findings into clear narratives for stakeholders in healthcare and education sectors.</p>
+            <span class="text-xs text-blue-400 font-bold uppercase tracking-wider">Click to learn more</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 2. Programming & Tools -->
+      <div class="reveal-on-scroll skill-card" data-accent="purple" onclick="handleSkillClick('Programming & Tools')">
+        <div class="icon-wrapper">
+          <div class="glow-blob"></div>
+          <i class="ti ti-code"></i>
+        </div>
+        <h3 class="skill-title">Programming &amp; Tools</h3>
+        <span class="skill-tag">Technical</span>
+        <div class="accent-bar"></div>
+        <div class="overlay">
+          <div class="overlay-content text-center">
+            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Proficient in Python (Pandas, NumPy), R, SQL, and Git for robust data pipeline development.</p>
+            <span class="text-xs text-purple-400 font-bold uppercase tracking-wider">Click to learn more</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 3. ML & Statistics -->
+      <div class="reveal-on-scroll skill-card" data-accent="orange" onclick="handleSkillClick('ML & Statistics')">
+        <div class="icon-wrapper">
+          <div class="glow-blob"></div>
+          <i class="ti ti-brain"></i>
+        </div>
+        <h3 class="skill-title">ML &amp; Statistics</h3>
+        <span class="skill-tag">Core Science</span>
+        <div class="accent-bar"></div>
+        <div class="overlay">
+          <div class="overlay-content text-center">
+            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Building predictive models using Scikit-Learn to analyze trends in public health data.</p>
+            <span class="text-xs text-orange-400 font-bold uppercase tracking-wider">Click to learn more</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 4. Data Visualization -->
+      <div class="reveal-on-scroll skill-card" data-accent="teal" onclick="handleSkillClick('Data Visualization')">
+        <div class="icon-wrapper">
+          <div class="glow-blob"></div>
+          <i class="ti ti-chart-bar"></i>
+        </div>
+        <h3 class="skill-title">Data Visualization</h3>
+        <span class="skill-tag">Analytics</span>
+        <div class="accent-bar"></div>
+        <div class="overlay">
+          <div class="overlay-content text-center">
+            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Creating interactive dashboards with Tableau and Matplotlib to visualize educational disparities.</p>
+            <span class="text-xs text-teal-400 font-bold uppercase tracking-wider">Click to learn more</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 5. Big Data & Cloud -->
+      <div class="reveal-on-scroll skill-card" data-accent="red" onclick="handleSkillClick('Big Data & Cloud')">
+        <div class="icon-wrapper">
+          <div class="glow-blob"></div>
+          <i class="ti ti-cloud"></i>
+        </div>
+        <h3 class="skill-title">Big Data &amp; Cloud</h3>
+        <span class="skill-tag">Infrastructure</span>
+        <div class="accent-bar"></div>
+        <div class="overlay">
+          <div class="overlay-content text-center">
+            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Familiarity with emerging cloud platforms (AWS/Azure) for scalable data storage and processing.</p>
+            <span class="text-xs text-red-400 font-bold uppercase tracking-wider">Click to learn more</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 6. Web & Deployment -->
+      <div class="reveal-on-scroll skill-card" data-accent="cyan" onclick="handleSkillClick('Web & Deployment')">
+        <div class="icon-wrapper">
+          <div class="glow-blob"></div>
+          <i class="ti ti-rocket"></i>
+        </div>
+        <h3 class="skill-title">Web &amp; Deployment</h3>
+        <span class="skill-tag">DevOps</span>
+        <div class="accent-bar"></div>
+        <div class="overlay">
+          <div class="overlay-content text-center">
+            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Full-stack DS edge using Django and Flask to deploy models into accessible web applications.</p>
+            <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Click to learn more</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 7. Domain Knowledge -->
+      <div class="reveal-on-scroll skill-card" data-accent="green" onclick="handleSkillClick('Domain Knowledge')">
+        <div class="icon-wrapper">
+          <div class="glow-blob"></div>
+          <i class="ti ti-book"></i>
+        </div>
+        <h3 class="skill-title">Domain Knowledge</h3>
+        <span class="skill-tag">Context</span>
+        <div class="accent-bar"></div>
+        <div class="overlay">
+          <div class="overlay-content text-center">
+            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Deep understanding of African socio-economic contexts applied to data interpretation.</p>
+            <span class="text-xs text-green-400 font-bold uppercase tracking-wider">Click to learn more</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 8. Soft & Academic Skills -->
+      <div class="reveal-on-scroll skill-card" data-accent="pink" onclick="handleSkillClick('Soft & Academic Skills')">
+        <div class="icon-wrapper">
+          <div class="glow-blob"></div>
+          <i class="ti ti-school"></i>
+        </div>
+        <h3 class="skill-title">Soft &amp; Academic Skills</h3>
+        <span class="skill-tag">Academic</span>
+        <div class="accent-bar"></div>
+        <div class="overlay">
+          <div class="overlay-content text-center">
+            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Research methodology, critical thinking, and collaborative problem-solving in academic settings.</p>
+            <span class="text-xs text-pink-400 font-bold uppercase tracking-wider">Click to learn more</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-<div class="reveal-on-scroll skill-card group relative h-72 overflow-hidden rounded-2xl bg-[#1C6EA4] border border-transparent p-6 flex flex-col items-center justify-center text-center shadow-md">
-<div class="mb-5 w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-slate-200 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-<img alt="Communication representation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4B6lwPRF-Y-yNVkygA8DJEDuQyPMMLPfJOv0lGNsZxPWMalm6fQfYCzVe_1ASfZm86Llzv2DkAUyK4154jbMsHlSKUchm4QnKa18JGhnKe4jBnJ4CKMWw5xytA8QUnfnkSW7S1VOYB6iJANwJCWrcU5gWmgTvqlTUmQdqlvmr8Lv2FaxTMEUWxMfbu7gOUqShkcwbFdZoh6_yjG4jye8e2wUFDdNN7RU-3NhQ91wPHRJocer4ih38P5vkskOmKokakhFH-RASr5k"/>
-</div>
-<h3 class="text-lg md:text-xl font-bold text-white tracking-wide">Communication</h3>
-<div class="overlay absolute inset-0 bg-black/60 p-6 flex items-center justify-center text-center transform translate-y-full transition-transform duration-300 ease-out backdrop-blur-[2px]">
-<p class="text-white text-sm md:text-base font-bold leading-relaxed">Translating complex data findings into clear narratives for stakeholders in healthcare and education sectors.</p>
-</div>
-</div>
-<div class="reveal-on-scroll skill-card group relative h-72 overflow-hidden rounded-2xl bg-[#1C6EA4] border border-transparent p-6 flex flex-col items-center justify-center text-center shadow-md">
-<div class="mb-5 w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-slate-200 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-<img alt="Programming representation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW6cIj2Jk7wZEYMW33zV3E3DwvbI-A3uzvdjuVQ4Wya873H9Ivd0kGjJ-1BLMiyxf0FWUswJPzPcxcF2DCWTiEBnv9cJQAIgn9QHeym0NKFcaXKzgiRg0tJYSkm5voBQPukGIiFLEsxrAXh4c_8LQ6nUxf1z_MX-HkdU5YQk-6r1FTXYOdyIZ3TsaxFvi6lBX6vAVs0O_iPgc3afGOay_BdI58MBwF4-uO-hqtfer51u7efM1aUQR_P16seqYlKi9FxaGF0qf3XdA"/>
-</div>
-<h3 class="text-lg md:text-xl font-bold text-white tracking-wide">Programming &amp; Tools</h3>
-<div class="overlay absolute inset-0 bg-black/60 p-6 flex items-center justify-center text-center transform translate-y-full transition-transform duration-300 ease-out backdrop-blur-[2px]">
-<p class="text-white text-sm md:text-base font-bold leading-relaxed">Proficient in Python (Pandas, NumPy), R, SQL, and Git for robust data pipeline development.</p>
-</div>
-</div>
-<div class="reveal-on-scroll skill-card group relative h-72 overflow-hidden rounded-2xl bg-[#1C6EA4] border border-transparent p-6 flex flex-col items-center justify-center text-center shadow-md">
-<div class="mb-5 w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-slate-200 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-<img alt="Machine Learning representation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb3-P7r4aqni-JVd5kAgsqP-rnwQHPeQWcjJejnKiyT5SblQOzMoBD_PkooG3NYcgxCsYVF3fSjAgvEAvbzqg_vNm0DcZ24rgCvcMbsg32JhKw-nsvUDkS2wkgRBgDEpY-tCDIUebrmePF39L3itOAH1Uruc9x6MMnK2NDyq5PjCN2lKvB4GAwCgPn9rRg0UsoAvMF-KatPeqp57KFt9tiJ7ndO2NeqatvqFLIKXrJ_mC0zZKGonXOAl-OtEzh-jr4ixZXkUXeMSQ"/>
-</div>
-<h3 class="text-lg md:text-xl font-bold text-white tracking-wide">ML &amp; Statistics</h3>
-<div class="overlay absolute inset-0 bg-black/60 p-6 flex items-center justify-center text-center transform translate-y-full transition-transform duration-300 ease-out backdrop-blur-[2px]">
-<p class="text-white text-sm md:text-base font-bold leading-relaxed">Building predictive models using Scikit-Learn to analyze trends in public health data.</p>
-</div>
-</div>
-<div class="reveal-on-scroll skill-card group relative h-72 overflow-hidden rounded-2xl bg-[#1C6EA4] border border-transparent p-6 flex flex-col items-center justify-center text-center shadow-md">
-<div class="mb-5 w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-slate-200 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-<img alt="Data Visualization representation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1wJ5e1sgqtDvMx3pB63O66RZkZyTImIXML5aWd_i0Jbs-LRIsTv51F63ZbrGDDkxDaXyFbW2fEfPItU-T65_o1ZAEQVlZlqj3-tgil94xt1d6Nl52x6E_PA8p_tcW3SgxgNHUjZh7SGoshUnpgILdkwbk7CAUY4EW6ergaXCAeeTsmoAjQluTMj7hbH7ZZQmUyPSXz_WIucqXXtm-sHRHdgJgbBCzgNtn8Jj3GYDGCYlH1HRUdpAzs8qpAjPnkBpgm5pz_yDAGIE"/>
-</div>
-<h3 class="text-lg md:text-xl font-bold text-white tracking-wide">Data Visualization</h3>
-<div class="overlay absolute inset-0 bg-black/60 p-6 flex items-center justify-center text-center transform translate-y-full transition-transform duration-300 ease-out backdrop-blur-[2px]">
-<p class="text-white text-sm md:text-base font-bold leading-relaxed">Creating interactive dashboards with Tableau and Matplotlib to visualize educational disparities.</p>
-</div>
-</div>
-<div class="reveal-on-scroll skill-card group relative h-72 overflow-hidden rounded-2xl bg-[#1C6EA4] border border-transparent p-6 flex flex-col items-center justify-center text-center shadow-md">
-<div class="mb-5 w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-slate-200 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-<img alt="Cloud Computing representation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIeIgEuYevws95D2z56q2YJWnxC3lYX7SkbJ-3Wn3dfOGQXR3lJ7fxlIZVlAe-t-qr3b-QAMxuDsQqTg-7McYbXDHYUsx9CUm2cSw6h2OHE87zZGwdVb5OxEW8wYPVbrz046enrqzG6ba_BUQSBkUIW1BwyyeQGOdavxaHALnJGaSURo0lxPqZiTICRQn3B-bri5vLVtrpDNJtmrA5LGyE6A0xcwJDs78mj_bGNObQ5pypxiRjLW0d_Le4vS8bpOpHfiq72Y5gDCU"/>
-</div>
-<h3 class="text-lg md:text-xl font-bold text-white tracking-wide">Big Data &amp; Cloud</h3>
-<div class="overlay absolute inset-0 bg-black/60 p-6 flex items-center justify-center text-center transform translate-y-full transition-transform duration-300 ease-out backdrop-blur-[2px]">
-<p class="text-white text-sm md:text-base font-bold leading-relaxed">Familiarity with emerging cloud platforms (AWS/Azure) for scalable data storage and processing.</p>
-</div>
-</div>
-<div class="reveal-on-scroll skill-card group relative h-72 overflow-hidden rounded-2xl bg-[#1C6EA4] border border-transparent p-6 flex flex-col items-center justify-center text-center shadow-md">
-<div class="mb-5 w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-slate-200 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-<img alt="Web Development representation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB91hu9p6lU5QLPavz5w2eU_dCjGrwVBWCtjF1AAokreplUfVUHxIxob9LU04ONxe9iokeYcW40qw8YdI2gdDhD5KWdeBYJY6tFdY6hdS9mb6ALd7RSZCO5L6y1gwfDnvbUwQmGC7vYpqksI8PR-Mw_pd0-1JEnhIzLX91BrLxl7bUnUE0eSGD5snulEjXnudYX1V6ew-BWkl_rkkjOP8C_VWsMIA7g80UJq0bk_6rq6-Oo_YGraC6a62Qg2IozUvEUoIRaD-s2Szw"/>
-</div>
-<h3 class="text-lg md:text-xl font-bold text-white tracking-wide">Web &amp; Deployment</h3>
-<div class="overlay absolute inset-0 bg-black/60 p-6 flex items-center justify-center text-center transform translate-y-full transition-transform duration-300 ease-out backdrop-blur-[2px]">
-<p class="text-white text-sm md:text-base font-bold leading-relaxed">Full-stack DS edge using Django and Flask to deploy models into accessible web applications.</p>
-</div>
-</div>
-<div class="reveal-on-scroll skill-card group relative h-72 overflow-hidden rounded-2xl bg-[#1C6EA4] border border-transparent p-6 flex flex-col items-center justify-center text-center shadow-md">
-<div class="mb-5 w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-slate-200 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-<img alt="Domain Knowledge representation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcyKggSlLwscSK5GD3YdpfUNlx-FeuRrGFcaesX2uHAcMb2y7XigxquFF8AoE9pL38-8UQcJrgZ7qbzCpm82Bo3wTkThcDe7IjoKjrxO3juQkr1qvkZrH1RKPWnYQaHS1rMRsftya6_fMBVRMKMDFp0n499-4ea_uojiIF8LtCNHdrOmAttw0q83JyPoANOTrJ-BMSlLl4hyLhqeGgYbo5GzoECUNMSVdo_JvXx3zuJYzYrSymLHDHfgAPDfXQ5JIeDZM9rRZYDIg"/>
-</div>
-<h3 class="text-lg md:text-xl font-bold text-white tracking-wide">Domain Knowledge</h3>
-<div class="overlay absolute inset-0 bg-black/60 p-6 flex items-center justify-center text-center transform translate-y-full transition-transform duration-300 ease-out backdrop-blur-[2px]">
-<p class="text-white text-sm md:text-base font-bold leading-relaxed">Deep understanding of African socio-economic contexts applied to data interpretation.</p>
-</div>
-</div>
-<div class="reveal-on-scroll skill-card group relative h-72 overflow-hidden rounded-2xl bg-[#1C6EA4] border border-transparent p-6 flex flex-col items-center justify-center text-center shadow-md">
-<div class="mb-5 w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-slate-200 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-<img alt="Soft Skills representation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLv8veJmsQpJD7KKFwNr3yBpFwAp4hzKm2d1OT6nV_ZKYKjFNZXgTLhbxmjbXOJA-_SJ1ttp0FqWTtF1d-a8bO0gUkxl6QC9ALOkLbNcAGPJ9bVtIO85IIkWgJYz6S59lVQ--hm6bNIseEiFdY1uCzSRBXMamtXcmOTP46F9b8q40gayhTdyOdkqA_-VhcAOS1Uktk-k1xA2HDkomAYLKEI-yTwpjC1zRGlWSzWkdzgLzL3BZnZOcuycAaB8eOGl2oBh5YaMyj3uM"/>
-</div>
-<h3 class="text-lg md:text-xl font-bold text-white tracking-wide">Soft &amp; Academic Skills</h3>
-<div class="overlay absolute inset-0 bg-black/60 p-6 flex items-center justify-center text-center transform translate-y-full transition-transform duration-300 ease-out backdrop-blur-[2px]">
-<p class="text-white text-sm md:text-base font-bold leading-relaxed">Research methodology, critical thinking, and collaborative problem-solving in academic settings.</p>
-</div>
-</div>
-</div>
+
+<!-- Custom Sleek Skill Modal -->
+<div id="skill-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 opacity-0 pointer-events-none transition-all duration-300" style="background: rgba(15, 22, 35, 0.85); backdrop-filter: blur(8px);">
+  <div class="bg-[#161f30] border border-white/10 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl transform scale-95 transition-all duration-300 relative">
+    <div id="modal-accent" class="h-1.5 w-full bg-blue-500"></div>
+    <button onclick="closeSkillModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors bg-transparent border-0 cursor-pointer">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="p-8">
+      <div class="flex items-center gap-4 mb-4">
+        <div id="modal-icon-wrapper" class="w-12 h-12 rounded-xl flex items-center justify-center bg-white/5 border border-white/10">
+          <i id="modal-icon" class="ti text-2xl"></i>
+        </div>
+        <div>
+          <h4 id="modal-title" class="text-xl font-bold text-white"></h4>
+          <span id="modal-tag" class="inline-block mt-1 text-xs px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-gray-300"></span>
+        </div>
+      </div>
+      <p id="modal-description" class="text-gray-300 text-sm md:text-base leading-relaxed mb-6"></p>
+      <div class="flex gap-4">
+        <a href="/projects" class="flex-1 text-center py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-all shadow-lg hover:shadow-blue-500/20 no-underline">Explore Projects</a>
+        <button onclick="closeSkillModal()" class="flex-1 text-center py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold text-sm transition-all cursor-pointer">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
+    const skillDetails = {
+      'Communication': {
+        tag: 'Soft Skill',
+        icon: 'ti-message-2',
+        accent: '#3b82f6',
+        desc: 'Nariman is an expert communicator who bridges the gap between statistical technicalities and operational decision-making. He has successfully presented research papers and data-driven insights to healthcare directors, educational leads, and international NGOs, turning insights into positive community impact.'
+      },
+      'Programming & Tools': {
+        tag: 'Technical',
+        icon: 'ti-code',
+        accent: '#a855f7',
+        desc: 'Fluent in Python, R, SQL, and Git, Nariman builds reproducible, clean data pipelines. From scraping public data to writing custom ETL routines and cleaning sparse datasets, he ensures high data integrity and optimization at every step.'
+      },
+      'ML & Statistics': {
+        tag: 'Core Science',
+        icon: 'ti-brain',
+        accent: '#fb923c',
+        desc: 'With solid training in statistical inference and machine learning algorithms, Nariman designs Scikit-Learn models to predict outcomes, perform clustering, and conduct regression analyses, applying these to health trends and public services in African nations.'
+      },
+      'Data Visualization': {
+        tag: 'Analytics',
+        icon: 'ti-chart-bar',
+        accent: '#14b8a6',
+        desc: 'Believing that data is only as good as it is understood, Nariman crafts dashboards in Tableau, Matplotlib, and Seaborn. His visual charts clearly depict socio-economic progress, helping leaders locate critical gaps instantly.'
+      },
+      'Big Data & Cloud': {
+        tag: 'Infrastructure',
+        icon: 'ti-cloud',
+        accent: '#ef4444',
+        desc: 'Nariman works with big data concepts and modern cloud integrations. He configures robust databases and leverages secure cloud solutions (AWS/Azure) to host models, manage data storage, and compute large-scale analyses.'
+      },
+      'Web & Deployment': {
+        tag: 'DevOps',
+        icon: 'ti-rocket',
+        accent: '#06b6d4',
+        desc: 'To put models in the hands of users, Nariman leverages Python web frameworks like Django and Flask. He builds user-friendly web apps that serve live predictions, handle interactive surveys, and present research datasets.'
+      },
+      'Domain Knowledge': {
+        tag: 'Context',
+        icon: 'ti-book',
+        accent: '#10b981',
+        desc: 'Bringing a deep contextual knowledge of African healthcare and education systems, Nariman designs studies and models that are highly tailored to regional realities rather than using one-size-fits-all assumptions.'
+      },
+      'Soft & Academic Skills': {
+        tag: 'Academic',
+        icon: 'ti-school',
+        accent: '#ec4899',
+        desc: 'An active academic researcher with rigorous study designs, Nariman applies academic standards to project workflows. His skills include collaborative writing, peer reviews, literature synthesis, and structured hypothesis testing.'
+      }
+    };
+
+    function handleSkillClick(name) {
+      const data = skillDetails[name];
+      if (!data) return;
+      
+      const modal = document.getElementById('skill-modal');
+      const title = document.getElementById('modal-title');
+      const tag = document.getElementById('modal-tag');
+      const desc = document.getElementById('modal-description');
+      const icon = document.getElementById('modal-icon');
+      const accent = document.getElementById('modal-accent');
+      
+      title.textContent = name;
+      tag.textContent = data.tag;
+      desc.textContent = data.desc;
+      
+      // Icon styling
+      icon.className = `ti ${data.icon} text-2xl`;
+      icon.style.color = data.accent;
+      
+      // Accent color line styling
+      accent.style.backgroundColor = data.accent;
+      
+      // Show Modal
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.querySelector('.transform').classList.remove('scale-95');
+      modal.querySelector('.transform').classList.add('scale-100');
+    }
+
+    function closeSkillModal() {
+      const modal = document.getElementById('skill-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.querySelector('.transform').classList.add('scale-95');
+      modal.querySelector('.transform').classList.remove('scale-100');
+    }
+
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSkillModal();
+    });
+
+    // Close modal when clicking outside content area
+    document.getElementById('skill-modal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('skill-modal')) closeSkillModal();
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
         const observerOptions = {
             threshold: 0.15,
