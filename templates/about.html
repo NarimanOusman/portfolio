@@ -295,6 +295,12 @@
 <span>English, Arabic</span>
 </div>
 </div>
+<div class="mt-8">
+  <a href="/static/Nariman_CV.pdf" download class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white font-bold rounded-lg hover:shadow-lg hover:shadow-blue-600/40 transition-all no-underline">
+    <span class="material-symbols-outlined text-[20px]">download</span>
+    Download My CV
+  </a>
+</div>
 </div>
 <div class="relative w-full md:w-2/5 lg:w-[42%] flex justify-center md:justify-end -mt-6 md:-mt-12 lg:-mt-16 hero-image-container">
   <div class="relative h-[26rem] w-[26rem] sm:h-[30rem] sm:w-[30rem] lg:h-[34rem] lg:w-[34rem] overflow-hidden shadow-none">
@@ -343,140 +349,60 @@
       <h2 class="text-3xl font-black leading-tight text-slate-900 tracking-tight">Technical &amp; Professional Skills</h2>
       <p class="text-slate-500 text-base md:text-lg">Hover over cards to see application context. Click a card for details.</p>
     </div>
+<!-- Experience/Work Timeline -->
+<div class="w-full bg-white py-16 md:py-20 flex justify-center border-t border-slate-200">
+  <div class="w-full max-w-[1400px] px-6 md:px-12">
+    <h2 class="text-3xl font-black leading-tight text-slate-900 tracking-tight mb-4">Professional Experience</h2>
+    <p class="text-slate-600 text-base md:text-lg mb-12">Timeline of roles and key responsibilities</p>
     
-    <div class="skill-grid">
-      <!-- 1. Communication -->
-      <div class="reveal-on-scroll skill-card" data-accent="blue" onclick="handleSkillClick('Communication')">
-        <div class="icon-wrapper">
-          <div class="glow-blob"></div>
-          <span class="material-symbols-outlined">forum</span>
-        </div>
-        <h3 class="skill-title">Communication</h3>
-        <span class="skill-tag">Soft Skill</span>
-        <div class="accent-bar"></div>
-        <div class="overlay">
-          <div class="overlay-content text-center">
-            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Translating complex data findings into clear narratives for stakeholders in healthcare and education sectors.</p>
-            <span class="text-xs text-blue-400 font-bold uppercase tracking-wider">Click to learn more</span>
+    <div class="space-y-8">
+      <div class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md hover:shadow-xl transition-shadow">
+        <div class="flex flex-col md:flex-row min-h-[240px]">
+          <div class="relative md:w-[34%] h-56 md:h-auto overflow-hidden">
+            <img alt="Data management and analytics" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" src="/static/data.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-white/30 via-white/10 to-white/0"></div>
+          </div>
+          <div class="relative flex-1 p-6 md:p-8 flex flex-col justify-center bg-gradient-to-r from-white/95 via-white/90 to-white/75">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3 gap-2">
+              <h3 class="text-lg md:text-xl font-bold text-slate-900">Data Management &amp; Analytics</h3>
+              <span class="text-sm font-semibold text-blue-600">2023 - 2026</span>
+            </div>
+            <p class="text-slate-600 font-medium mb-3">Kigali Independent University</p>
+            <p class="text-slate-600 text-sm leading-relaxed">Skilled in managing databases, ensuring data quality, and applying ETL processes. Experienced in data cleaning and data governance to support efficient data analysis and decision-making. Working with real-world healthcare and education datasets and applying data science concepts in practical academic work.</p>
           </div>
         </div>
       </div>
-      
-      <!-- 2. Programming & Tools -->
-      <div class="reveal-on-scroll skill-card" data-accent="purple" onclick="handleSkillClick('Programming & Tools')">
-        <div class="icon-wrapper">
-          <div class="glow-blob"></div>
-          <span class="material-symbols-outlined">code</span>
-        </div>
-        <h3 class="skill-title">Programming &amp; Tools</h3>
-        <span class="skill-tag">Technical</span>
-        <div class="accent-bar"></div>
-        <div class="overlay">
-          <div class="overlay-content text-center">
-            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Proficient in Python (Pandas, NumPy), R, SQL, and Git for robust data pipeline development.</p>
-            <span class="text-xs text-purple-400 font-bold uppercase tracking-wider">Click to learn more</span>
+
+      <div class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md hover:shadow-xl transition-shadow">
+        <div class="flex flex-col md:flex-row min-h-[240px]">
+          <div class="relative md:w-[34%] h-56 md:h-auto overflow-hidden">
+            <img alt="Web development and full-stack development" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" src="/static/full.webp"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-white/30 via-white/10 to-white/0"></div>
+          </div>
+          <div class="relative flex-1 p-6 md:p-8 flex flex-col justify-center bg-gradient-to-r from-white/95 via-white/90 to-white/75">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3 gap-2">
+              <h3 class="text-lg md:text-xl font-bold text-slate-900">Web Developer &amp; Full-Stack Developer</h3>
+              <span class="text-sm font-semibold text-teal-600">2023 - 2026</span>
+            </div>
+            <p class="text-slate-600 font-medium mb-3">Freelance &amp; Academic Projects</p>
+            <p class="text-slate-600 text-sm leading-relaxed">Proficient in building responsive websites with HTML, CSS, and JavaScript, and experienced in backend development with Python and PHP. Skilled in creating optimized, user-friendly web applications for data visualization and academic use cases.</p>
           </div>
         </div>
       </div>
-      
-      <!-- 3. ML & Statistics -->
-      <div class="reveal-on-scroll skill-card" data-accent="orange" onclick="handleSkillClick('ML & Statistics')">
-        <div class="icon-wrapper">
-          <div class="glow-blob"></div>
-          <span class="material-symbols-outlined">psychology</span>
-        </div>
-        <h3 class="skill-title">ML &amp; Statistics</h3>
-        <span class="skill-tag">Core Science</span>
-        <div class="accent-bar"></div>
-        <div class="overlay">
-          <div class="overlay-content text-center">
-            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Building predictive models using Scikit-Learn to analyze trends in public health data.</p>
-            <span class="text-xs text-orange-400 font-bold uppercase tracking-wider">Click to learn more</span>
+
+      <div class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md hover:shadow-xl transition-shadow">
+        <div class="flex flex-col md:flex-row min-h-[240px]">
+          <div class="relative md:w-[34%] h-56 md:h-auto overflow-hidden">
+            <img alt="Computer science and data science student" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" src="/static/datascience.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-white/30 via-white/10 to-white/0"></div>
           </div>
-        </div>
-      </div>
-      
-      <!-- 4. Data Visualization -->
-      <div class="reveal-on-scroll skill-card" data-accent="teal" onclick="handleSkillClick('Data Visualization')">
-        <div class="icon-wrapper">
-          <div class="glow-blob"></div>
-          <span class="material-symbols-outlined">bar_chart</span>
-        </div>
-        <h3 class="skill-title">Data Visualization</h3>
-        <span class="skill-tag">Analytics</span>
-        <div class="accent-bar"></div>
-        <div class="overlay">
-          <div class="overlay-content text-center">
-            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Creating interactive dashboards with Tableau and Matplotlib to visualize educational disparities.</p>
-            <span class="text-xs text-teal-400 font-bold uppercase tracking-wider">Click to learn more</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 5. Big Data & Cloud -->
-      <div class="reveal-on-scroll skill-card" data-accent="red" onclick="handleSkillClick('Big Data & Cloud')">
-        <div class="icon-wrapper">
-          <div class="glow-blob"></div>
-          <span class="material-symbols-outlined">cloud</span>
-        </div>
-        <h3 class="skill-title">Big Data &amp; Cloud</h3>
-        <span class="skill-tag">Infrastructure</span>
-        <div class="accent-bar"></div>
-        <div class="overlay">
-          <div class="overlay-content text-center">
-            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Familiarity with emerging cloud platforms (AWS/Azure) for scalable data storage and processing.</p>
-            <span class="text-xs text-red-400 font-bold uppercase tracking-wider">Click to learn more</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 6. Web & Deployment -->
-      <div class="reveal-on-scroll skill-card" data-accent="cyan" onclick="handleSkillClick('Web & Deployment')">
-        <div class="icon-wrapper">
-          <div class="glow-blob"></div>
-          <span class="material-symbols-outlined">rocket_launch</span>
-        </div>
-        <h3 class="skill-title">Web &amp; Deployment</h3>
-        <span class="skill-tag">DevOps</span>
-        <div class="accent-bar"></div>
-        <div class="overlay">
-          <div class="overlay-content text-center">
-            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Full-stack DS edge using Django and Flask to deploy models into accessible web applications.</p>
-            <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Click to learn more</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 7. Domain Knowledge -->
-      <div class="reveal-on-scroll skill-card" data-accent="green" onclick="handleSkillClick('Domain Knowledge')">
-        <div class="icon-wrapper">
-          <div class="glow-blob"></div>
-          <span class="material-symbols-outlined">menu_book</span>
-        </div>
-        <h3 class="skill-title">Domain Knowledge</h3>
-        <span class="skill-tag">Context</span>
-        <div class="accent-bar"></div>
-        <div class="overlay">
-          <div class="overlay-content text-center">
-            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Deep understanding of African socio-economic contexts applied to data interpretation.</p>
-            <span class="text-xs text-green-400 font-bold uppercase tracking-wider">Click to learn more</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 8. Soft & Academic Skills -->
-      <div class="reveal-on-scroll skill-card" data-accent="pink" onclick="handleSkillClick('Soft & Academic Skills')">
-        <div class="icon-wrapper">
-          <div class="glow-blob"></div>
-          <span class="material-symbols-outlined">history_edu</span>
-        </div>
-        <h3 class="skill-title">Soft &amp; Academic Skills</h3>
-        <span class="skill-tag">Academic</span>
-        <div class="accent-bar"></div>
-        <div class="overlay">
-          <div class="overlay-content text-center">
-            <p class="text-white text-sm font-semibold leading-relaxed mb-4">Research methodology, critical thinking, and collaborative problem-solving in academic settings.</p>
-            <span class="text-xs text-pink-400 font-bold uppercase tracking-wider">Click to learn more</span>
+          <div class="relative flex-1 p-6 md:p-8 flex flex-col justify-center bg-gradient-to-r from-white/95 via-white/90 to-white/75">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3 gap-2">
+              <h3 class="text-lg md:text-xl font-bold text-slate-900">Computer Science &amp; Data Science Student</h3>
+              <span class="text-sm font-semibold text-purple-600">2023 - 2026</span>
+            </div>
+            <p class="text-slate-600 font-medium mb-3">Kigali Independent University</p>
+            <p class="text-slate-600 text-sm leading-relaxed">Motivated third-year Computer Science and Data Science student with strong interest in technology, programming, and data analysis. Eager to apply hands-on project experience and collaborative work to grow in the tech field.</p>
           </div>
         </div>
       </div>
@@ -484,6 +410,159 @@
   </div>
 </div>
 
+<!-- Tech Stack Showcase -->
+<div class="w-full py-16 md:py-20 flex justify-center border-t border-slate-200">
+  <div class="w-full max-w-[1400px] px-6 md:px-12">
+    <h2 class="text-3xl font-black leading-tight text-slate-900 tracking-tight mb-4">Tech Stack Proficiency</h2>
+    <p class="text-slate-600 text-base md:text-lg mb-12">Expertise levels across key technologies</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      <div>
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-bold text-slate-900">Python</span>
+          <span class="text-sm font-semibold text-blue-600">90%</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-3">
+          <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full" style="width: 90%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-bold text-slate-900">R Programming</span>
+          <span class="text-sm font-semibold text-sky-600">65%</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-3">
+          <div class="bg-gradient-to-r from-sky-500 to-sky-600 h-3 rounded-full" style="width: 65%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-bold text-slate-900">SQL</span>
+          <span class="text-sm font-semibold text-teal-600">85%</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-3">
+          <div class="bg-gradient-to-r from-teal-500 to-teal-600 h-3 rounded-full" style="width: 85%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-bold text-slate-900">Django &amp; Flask</span>
+          <span class="text-sm font-semibold text-green-600">80%</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-3">
+          <div class="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full" style="width: 80%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-bold text-slate-900">ML &amp; Statistics</span>
+          <span class="text-sm font-semibold text-orange-600">75%</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-3">
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full" style="width: 75%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-bold text-slate-900">MongoDB &amp; Databases</span>
+          <span class="text-sm font-semibold text-rose-600">88%</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-3">
+          <div class="bg-gradient-to-r from-rose-500 to-rose-600 h-3 rounded-full" style="width: 88%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-bold text-slate-900">AWS &amp; Azure</span>
+          <span class="text-sm font-semibold text-purple-600">60%</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-3">
+          <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-3 rounded-full" style="width: 60%"></div>
+        </div>
+      </div>
+    </div>
+    <p class="text-slate-500 text-xs mt-8">MongoDB expertise demonstrated through 12 professional certifications</p>
+  </div>
+</div>
+
+<!-- Certifications & Achievements -->
+<div class="w-full bg-white py-16 md:py-20 flex justify-center border-t border-slate-200">
+  <div class="w-full max-w-[1400px] px-6 md:px-12">
+    <h2 class="text-3xl font-black leading-tight text-slate-900 tracking-tight mb-4">Certifications &amp; Achievements</h2>
+    <p class="text-slate-600 text-base md:text-lg mb-12">Professional credentials and recognitions</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Cert 1 -->
+      <a href="/static/nariman-robo-076f5aed-c55d-4db7-b209-90e618fa8bd2-certificate.pdf" target="_blank" class="bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200 rounded-xl p-6 md:p-8 hover:shadow-md transition-shadow no-underline group">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="p-3 bg-blue-600 text-white rounded-lg group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined">verified</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-slate-900 mb-1">MongoDB and the Document Model</h3>
+            <p class="text-sm text-blue-700 font-semibold">MongoDB University - Feb 2026</p>
+          </div>
+        </div>
+        <p class="text-slate-600 text-sm">Click to view certificate</p>
+        <p class="text-xs text-slate-500 mt-3">View PDF →</p>
+      </a>
+
+      <!-- Cert 2 -->
+      <a href="/static/nariman-robo-1e45fa5c-15c2-4f3b-b7f7-25de6fd4235d-certificate.pdf" target="_blank" class="bg-gradient-to-br from-teal-50 to-teal-100/50 border border-teal-200 rounded-xl p-6 md:p-8 hover:shadow-md transition-shadow no-underline group">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="p-3 bg-teal-600 text-white rounded-lg group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined">verified</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-slate-900 mb-1">MongoDB Transactions</h3>
+            <p class="text-sm text-teal-700 font-semibold">MongoDB University - Mar 2026</p>
+          </div>
+        </div>
+        <p class="text-slate-600 text-sm">Click to view certificate</p>
+        <p class="text-xs text-slate-500 mt-3">View PDF →</p>
+      </a>
+
+      <!-- Cert 3 -->
+      <a href="/static/nariman-robo-293ecd6e-d64d-4c18-9c61-86076e61d543-certificate.pdf" target="_blank" class="bg-gradient-to-br from-purple-50 to-purple-100/50 border border-purple-200 rounded-xl p-6 md:p-8 hover:shadow-md transition-shadow no-underline group">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="p-3 bg-purple-600 text-white rounded-lg group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined">verified</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-slate-900 mb-1">MongoDB CRUD Operations</h3>
+            <p class="text-sm text-purple-700 font-semibold">MongoDB University - Feb 2026</p>
+          </div>
+        </div>
+        <p class="text-slate-600 text-sm">Click to view certificate</p>
+        <p class="text-xs text-slate-500 mt-3">View PDF →</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Call-to-Action Section -->
+<div class="w-full py-16 md:py-20 flex justify-center border-t border-slate-200" style="background: linear-gradient(135deg, #0b1f4d 0%, #0f4c7a 52%, #0f766e 100%);">
+  <div class="w-full max-w-[1400px] px-6 md:px-12 text-center">
+    <h2 class="text-3xl md:text-4xl font-black leading-tight text-white tracking-tight mb-4">Let's Collaborate</h2>
+    <p class="text-blue-100 text-base md:text-lg mb-8 max-w-2xl mx-auto">Have a project in mind? Want to discuss data science, web development, or educational technology? I'd love to hear from you.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="mailto:narimanrobo8@gmail.com" class="px-8 py-3 md:py-4 bg-white text-blue-900 font-bold rounded-lg border border-white transition-all shadow-lg hover:shadow-xl hover:bg-transparent hover:text-white no-underline">
+        Send Me an Email
+      </a>
+      <a href="/projects" class="px-8 py-3 md:py-4 bg-teal-600 text-white font-bold rounded-lg hover:bg-teal-500 transition-all shadow-lg hover:shadow-xl hover:brightness-110 border border-teal-400 no-underline">
+        View My Projects
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Skills Filter Buttons (added before skills grid) -->
 <!-- Custom Sleek Skill Modal -->
 <div id="skill-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 opacity-0 pointer-events-none transition-all duration-300" style="background: rgba(15, 22, 35, 0.85); backdrop-filter: blur(8px);">
   <div class="bg-[#161f30] border border-white/10 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl transform scale-95 transition-all duration-300 relative">
@@ -594,6 +673,42 @@
       modal.classList.add('opacity-0', 'pointer-events-none');
       modal.querySelector('.transform').classList.add('scale-95');
       modal.querySelector('.transform').classList.remove('scale-100');
+    }
+
+    // Skills Filter Function
+    function filterSkills(category) {
+      const cards = document.querySelectorAll('.skill-card');
+      const filterBtns = document.querySelectorAll('.skill-filter-btn');
+      
+      // Update active button
+      filterBtns.forEach(btn => {
+        btn.classList.remove('active');
+        btn.style.backgroundColor = '#e2e8f0';
+        btn.style.color = '#1e293b';
+      });
+      document.querySelector(`[data-filter="${category}"]`).classList.add('active');
+      document.querySelector(`[data-filter="${category}"]`).style.backgroundColor = '#3b82f6';
+      document.querySelector(`[data-filter="${category}"]`).style.color = 'white';
+      
+      // Filter cards
+      const categoryMap = {
+        'all': ['blue', 'purple', 'orange', 'teal', 'red', 'cyan', 'green', 'pink'],
+        'technical': ['purple', 'orange', 'cyan'],
+        'soft': ['blue', 'green', 'pink'],
+        'infrastructure': ['red', 'teal']
+      };
+      
+      const visibleAccents = categoryMap[category];
+      cards.forEach(card => {
+        const accent = card.getAttribute('data-accent');
+        if (visibleAccents.includes(accent)) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+          card.style.opacity = '0';
+        }
+      });
     }
 
     // Close modal on escape key
